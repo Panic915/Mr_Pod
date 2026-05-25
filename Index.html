@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MR Pods • Premium Vapes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <style>
+    .hero-bg {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), 
+                  url('imagens/hero-bg.png') center/cover no-repeat;
+      min-height: 100vh;
+    }
+    .glow-text {
+      text-shadow: 0 0 30px rgb(34 211 238), 0 0 60px rgb(34 211 238);
+    }
+    .product-card {
+      transition: all 0.4s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px -12px rgb(34 211 238 / 0.3);
+    }
+    .product-img {
+      height: 260px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .carousel-track {
+      transition: transform 0.7s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+  <!-- HEADER -->
+  <header class="bg-black/95 backdrop-blur-lg sticky top-0 z-50 border-b border-cyan-900">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="imagens/logo.png" alt="MR Pods Logo" class="w-16 h-16 object-contain">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tighter">MR PODS</h1>
+          <p class="text-cyan-400 text-sm -mt-1">PREMIUM VAPES</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex gap-10 text-lg font-medium">
+        <a href="#home" class="hover:text-cyan-400 transition">Início</a>
+        <a href="#produtos" class="hover:text-cyan-400 transition">Produtos</a>
+        <a href="#depoimentos" class="hover:text-cyan-400 transition">Depoimentos</a>
+        <a href="#entrega" class="hover:text-cyan-400 transition">Entrega</a>
+      </nav>
+
+      <a href="https://wa.me/559999999999" target="_blank" 
+         class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-7 py-3 rounded-2xl flex items-center gap-2 transition">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero-bg flex items-center relative">
+    <div class="max-w-7xl mx-auto px-6 text-center z-10">
+      <h2 class="text-6xl md:text-7xl font-black mb-6 glow-text leading-tight">
+        O MELHOR SABOR<br>DA CIDADE
+      </h2>
+      <p class="text-2xl md:text-3xl text-cyan-300 mb-10">
+       • Entrega rápida em Formosa • 
+      </p>
+      <a href="#produtos" class="inline-block bg-white hover:bg-cyan-400 text-black font-bold text-2xl px-16 py-6 rounded-3xl transition hover:scale-105 shadow-2xl">
+        Ver Produtos
+      </a>
+    </div>
+  </section>
+
+  <!-- PRODUTOS - PREÇO ATUALIZA AO SELECIONAR SABOR -->
+  <section id="produtos" class="py-20 bg-gray-950">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-4">Nossos Produtos</h2>
+      <p class="text-cyan-400 text-center mb-16 text-xl">Escolha o modelo e o sabor favorito</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+        <!-- V80 -->
+        <div class="product-card bg-gray-900 rounded-3xl overflow-hidden border border-gray-700">
+          <img src="imagens/v80.jpg" class="product-img" alt="V80">
+          <div class="p-6">
+            <h3 class="font-bold text-2xl">V80</h3>
+            <p id="price-v80" class="text-emerald-400 text-4xl font-semibold mt-1">R$ 95</p>
+            
+            <select onchange="updatePrice(this)" class="flavor-select w-full bg-gray-800 border border-gray-700 rounded-2xl px-4 py-3 mt-4 text-white" data-product="v80">
+              <option value="95">Manga</option>
+              <option value="100">Morango</option>
+              <option value="98">Blueberry</option>
+              <option value="102">Maçã Verde</option>
+              <option value="95">Melancia</option>
+            </select>
+            <button onclick="enviarWhats(this)" class="w-full mt-6 bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-4 rounded-2xl transition">Pedir no WhatsApp</button>
+          </div>
+        </div>
+
+        <!-- Lost V450 -->
+        <div class="product-card bg-gray-900 rounded-3xl overflow-hidden border border-gray-700">
+          <img src="imagens/lost-v450.jpg" class="product-img" alt="Lost V450">
+          <div class="p-6">
+            <h3 class="font-bold text-2xl">Lost V450</h3>
+            <p id="price-lost" class="text-emerald-400 text-4xl font-semibold mt-1">R$ 135</p>
+            
+            <select onchange="updatePrice(this)" class="flavor-select w-full bg-gray-800 border border-gray-700 rounded-2xl px-4 py-3 mt-4 text-white" data-product="lost">
+              <option value="135">Red Bull</option>
+              <option value="140">Menta Ice</option>
+              <option value="138">Frutas Vermelhas</option>
+              <option value="142">Limão Siciliano</option>
+            </select>
+            <button onclick="enviarWhats(this)" class="w-full mt-6 bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-4 rounded-2xl transition">Pedir no WhatsApp</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-4">O que nossos clientes falam</h2>
+      <p class="text-cyan-400 text-center mb-12">+500 clientes satisfeitos</p>
+
+      <div class="relative">
+        <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-black p-5 rounded-r-3xl z-20 text-3xl shadow-lg">←</button>
+        
+        <div class="overflow-hidden rounded-3xl">
+          <div id="carousel" class="flex gap-6 carousel-track"></div>
+        </div>
+
+        <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-black p-5 rounded-l-3xl z-20 text-3xl shadow-lg">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAMADA FINAL -->
+  <section id="entrega" class="py-24 bg-gradient-to-br from-cyan-600 to-blue-700 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-5xl font-bold mb-8">Faça seu pedido agora!</h2>
+      <a href="https://wa.me/559999999999" target="_blank" class="inline-flex items-center gap-4 bg-white text-black text-3xl font-bold px-20 py-8 rounded-3xl hover:scale-110 transition">
+        <i class="fab fa-whatsapp text-4xl"></i> Pedir no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black py-16 text-center">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-center items-center gap-4 mb-8">
+        <img src="imagens/logo.png" alt="MR Pods" class="w-12 h-12 object-contain">
+        <h2 class="text-4xl font-bold">MR PODS</h2>
+      </div>
+      <p class="text-gray-400">Formosa - GO • Entrega Rápida em toda cidade</p>
+      <p class="text-gray-500 mt-6 text-sm">© 2026 MR Pods • Apenas para maiores de 18 anos</p>
+    </div>
+  </footer>
+
+  <script>
+    function updatePrice(select) {
+      const priceElement = select.parentElement.querySelector('p[id^="price"]');
+      if (priceElement) {
+        priceElement.textContent = `R$ ${select.value}`;
+      }
+    }
+
+    function enviarWhats(button) {
+      const card = button.parentElement;
+      const produto = card.querySelector('h3').textContent;
+      const select = card.querySelector('.flavor-select');
+      const sabor = select.options[select.selectedIndex].text;
+      const preco = card.querySelector('p[id^="price"]').textContent;
+
+      const mensagem = `Olá! Quero comprar o *${produto}* sabor *${sabor}* (${preco})`;
+      const numero = "559999999999"; 
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
+    }
+
+    // ==================== CARROSSEL ====================
+    const carousel = document.getElementById('carousel');
+    let currentIndex = 0;
+
+    const comentarios = [
+      "Entrega super rápida, chegou em menos de 40 minutos!", "Melhor preço que encontrei em Formosa!", 
+      "Atendimento excelente, muito educados", "Pod original, funcionando perfeitamente", 
+      "Sabor incrível, um dos melhores que já experimentei", "Já fiz o segundo pedido essa semana",
+      "Entrega discreta e muito rápida", "Qualidade top, nota 10!", "Chegou antes do combinado!", 
+      "Muito satisfeito com o produto", "Preço justo e produto de qualidade", "Melhor vape da cidade",
+      "Atendimento rápido via WhatsApp", "Embalagem bem protegida", "Sabor intenso e duradouro"
+    ];
+
+    const nomes = ["Lucas Mendes", "João Silva", "Ana Clara", "Mateus Rocha", "Beatriz Lima", "Pedro Henrique", 
+                   "Camila Ferreira", "Rafael Costa", "Larissa Santos", "Gabriel Alves", "Julia Mendes", 
+                   "Felipe Nunes", "Isabela Rocha", "Bruno Lima", "Mariana Costa"];
+
+    function createCard() {
+      const comentario = comentarios[Math.floor(Math.random() * comentarios.length)];
+      const nome = nomes[Math.floor(Math.random() * nomes.length)];
+      
+      const card = document.createElement('div');
+      card.className = "min-w-[380px] bg-gray-900 rounded-3xl p-8 border border-gray-700 flex-shrink-0";
+      card.innerHTML = `
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-cyan-500 rounded-2xl flex items-center justify-center text-2xl font-bold">${nome[0]}</div>
+          <div>
+            <p class="font-semibold text-lg">${nome}</p>
+            <p class="text-xs text-gray-500">Cliente verificado</p>
+          </div>
+        </div>
+        <p class="text-gray-200 italic text-lg leading-relaxed">"${comentario}"</p>
+        <div class="text-yellow-400 text-2xl mt-6">★★★★★</div>
+      `;
+      return card;
+    }
+
+    for (let i = 0; i < 50; i++) {
+      carousel.appendChild(createCard());
+    }
+
+    function updateCarousel() {
+      const cardWidth = 396;
+      carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    function nextSlide() {
+      const max = Math.floor(carousel.children.length / 3) - 1;
+      currentIndex = currentIndex >= max ? 0 : currentIndex + 1;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      const max = Math.floor(carousel.children.length / 3) - 1;
+      currentIndex = currentIndex <= 0 ? max : currentIndex - 1;
+      updateCarousel();
+    }
+
+    setInterval(nextSlide, 4000);
+  </script>
+
+</body>
+</html>
